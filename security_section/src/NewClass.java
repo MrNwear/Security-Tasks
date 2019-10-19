@@ -14,12 +14,33 @@ import java.util.Scanner;
 public class NewClass {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        int n=in.nextInt();
-        String s="";
-        for (int i = 1; i <= n; i++) {
-            s+=Integer.toString(i);
+        String ch=in.next();
+        String s=in.next();
+        String line1="qwertyuiop";
+        String line2="asdfghjkl;";
+        String line3="zxcvbnm,./";
+        String out="";
+        int x=0;
+        if(ch.charAt(0)=='R')
+            x=-1;
+        else if(ch.charAt(0)=='L')
+            x=1;
+        for (int i = 0; i < s.length(); i++) {
+         char chs=s.charAt(i);
+            if(line1.indexOf(chs)!= -1){
+                int loc=line1.indexOf(chs);
+            out+=line1.charAt(loc+x);
+            }
+            else if(line2.indexOf(chs)!= -1){
+                int loc=line2.indexOf(chs);
+            out+=line2.charAt(loc+x);
+            }
+            else if(line3.indexOf(chs)!= -1){
+                int loc=line3.indexOf(chs);
+            out+=line3.charAt(loc+x);
+            }
         }
-        System.out.println(s.charAt(n-1));
+        System.out.println(out);
     }
 }
  
